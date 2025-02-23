@@ -40,9 +40,9 @@ public class ProAssessAccuracy{
                 			.when()
                 			.get("url  required to extract the input required")  
                 			.then()
-			          		.statusCode(200)
-			           		.body("recommended_pump.model", notNullValue())
-			          		.body("recommended_pump.size", greaterThan(0));
+			                .statusCode(200)
+			                .body("recommended_pump.model", notNullValue())
+			          	.body("recommended_pump.size", greaterThan(0));
     }
 
     @Test
@@ -52,9 +52,9 @@ public class ProAssessAccuracy{
     		    .get("url required to extract the input required")
     		    .then()
     		    .statusCode(200)
-             	.log().all()
-    			.extract()   // Extract the response
-    			.response(); 
+             	    .log().all()
+    		    .extract()   // Extract the response
+    		    .response(); 
     	
         String responseBody = vr.asString();
       
@@ -78,7 +78,7 @@ public class ProAssessAccuracy{
     @Test
     public void testInstallerScheduling() {
     	        when()
-        	    .get("url  required to extract the input required")  
+        	.get("url  required to extract the input required")  
                 .then()
                 .statusCode(200)
                	.body("schedule.date", notNullValue())
@@ -88,18 +88,18 @@ public class ProAssessAccuracy{
         @Test
     public void PaymentAndGrants() {
         	Response vr = given()
-        		.header("content Type", "server")
+        	.header("content Type", "server")
                 .when()
-          	    .get("url  required to extract the input required")  
+          	.get("url  required to extract the input required")  
                 .then()
                 .statusCode(200)
                 .log().all()
                 .extract()   // Extract the response
-    			.response(); 
+    		.response(); 
     
-        String responseBody = vr.asString();
+                String responseBody = vr.asString();
      
-        JSONObject jsonResponse = new JSONObject(responseBody); 
+                JSONObject jsonResponse = new JSONObject(responseBody); 
 		Assert.assertNotNull(jsonResponse.optBoolean("grant_eligibility"), "Grant eligibility should be determined.");
 		Assert.assertEquals(jsonResponse.getString("payment_status"), "successful", "Payment status should be successful.");  
   }
