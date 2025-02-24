@@ -1,0 +1,8 @@
+{
+  "projectId": "12345",
+  "installerData": {
+    "id": "98765",
+    "name": "John Doe",
+    "availability": "Available"
+  }
+}
